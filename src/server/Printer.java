@@ -6,12 +6,12 @@ import util.PrintingQueue;
 public class Printer implements Runnable {
     private String printerName;
     private PrintingQueue queue;
-    private LogManager logManager;
+    private LogManager log;
 
-    public Printer(String printerName, PrintingQueue queue, LogManager logManager) {
+    public Printer(String printerName, PrintingQueue queue, LogManager log) {
         this.printerName = printerName;
         this.queue = queue;
-        this.logManager = logManager;
+        this.log = log;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Printer implements Runnable {
                 // Simula o tempo de impressão (1 segundo por página)
                 Thread.sleep(job.getPageCount() * 1000L);
 
-                logManager.register(printerName + " - Impressão concluída: " + job);
+                log.register(printerName + " - Impressão concluída: " + job);
             }
             catch (InterruptedException e) {
                 break; // Encerra a thread
