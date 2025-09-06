@@ -1,0 +1,34 @@
+package server;
+
+import model.PrintJob;
+import util.PrintingQueue;
+
+public class Printer implements Runnable {
+    private String printerName;
+    private PrintingQueue queue;
+    private LogManager logManager;
+
+    public Printer(String printerName, PrintingQueue queue, LogManager logManager) {
+        this.printerName = printerName;
+        this.queue = queue;
+        this.logManager = logManager;
+    }
+
+    @Override
+    public void run() {
+        while(true) {
+            try {
+                // Puxa um job da fila.
+                PrintJob job = queue.remove();
+
+                // Simula o tempo de impressão (1 segundo por página)
+                Thread.sleep(job.getPageCount() * 1000L);
+
+                logManager.register(printerName + " - Impressão concluída: " + job);
+            }
+            catch (InterruptedException e) {
+                break; // Encerra a thread
+            }
+        }
+    }
+}
