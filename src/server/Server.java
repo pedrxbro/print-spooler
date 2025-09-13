@@ -17,10 +17,12 @@ public class Server {
         LogManager log = new LogManager();
 
         // Pool de Threads para as impressoras
-        ExecutorService pool = Executors.newFixedThreadPool(3);
+        ExecutorService pool = Executors.newFixedThreadPool(5);
         pool.execute(new Printer("HP PRETA HOL IP 142", queue, log));
         pool.execute(new Printer("BROTHER COLOR COND IP 72", queue, log));
         pool.execute(new Printer("RICOH COLOR MKT IP 232", queue, log));
+        pool.execute(new Printer("EPSON COLOR MKT IP 72", queue, log));
+        pool.execute(new Printer("HP PRETA FISCAL IP 221", queue, log));
 
         // Inicia o servidor para receber conexões de clientes
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {

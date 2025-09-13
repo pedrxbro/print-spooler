@@ -21,9 +21,13 @@ public class Printer implements Runnable {
                 // Puxa um job da fila.
                 PrintJob job = queue.remove();
 
+                System.out.println(printerName + " - Iniciando impressão: " + job);
+                log.register(printerName + " - Impressão iniciada: " + job);
+
                 // Simula o tempo de impressão (1 segundo por página)
                 Thread.sleep(job.getPageCount() * 1000L);
 
+                System.out.println(printerName + "- Impressão concluída: " + job);
                 log.register(printerName + " - Impressão concluída: " + job);
             }
             catch (InterruptedException e) {
