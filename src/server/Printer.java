@@ -3,7 +3,7 @@ package server;
 import model.PrintJob;
 import util.PrintingQueue;
 
-public class Printer implements Runnable {
+public class Printer extends Thread {
     private String printerName;
     private PrintingQueue queue;
     private LogManager log;

@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.Random;
 
 public class Client {
-    private static final int MAX_JOBS = 5;
+    private static final int MAX_JOBS = 10;
 
     public static void main(String[] args) throws InterruptedException {
         String server = "localhost";
@@ -30,9 +30,6 @@ public class Client {
                 out.flush();
 
                 System.out.println("Job enviado: " + printJob);
-
-                // Espera aleatória antes de enviar o próximo job
-                Thread.sleep(random.nextInt(500, 2000));
 
             } catch (Exception e) {
                 System.out.println("Erro ao enviar job " + i + ". Tentando novamente em 2 segundos...");
