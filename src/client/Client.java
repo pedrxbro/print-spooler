@@ -7,7 +7,6 @@ import java.net.Socket;
 import java.util.Random;
 
 public class Client {
-    private static final int MAX_JOBS = 10;
 
     public static void main(String[] args) throws InterruptedException {
         String server = "localhost";
@@ -16,27 +15,24 @@ public class Client {
 
         // Espera 2 segundos antes de iniciar
         Thread.sleep(2000);
+        try (Socket socket = new Socket(server, port);
+             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) {
+            int idJob = random.nextInt(5) + 1;
+            String fileName = "Documento_" + idJob + ".pdf";
+            int pageCount = random.nextInt(10) + 1;
 
-        for (int i = 0; i < MAX_JOBS; i++) {
-            try (Socket socket = new Socket(server, port);
-                 ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) {
+            PrintJob printJob = new PrintJob(idJob, fileName, pageCount);
+            out.writeObject(printJob);
+            out.flush();
 
-                int idJob = i + 1;
-                String fileName = "Documento_" + idJob + ".pdf";
-                int pageCount = random.nextInt(30) + 1;
+            System.out.println("Job enviado: " + printJob);
 
-                PrintJob printJob = new PrintJob(idJob, fileName, pageCount);
-                out.writeObject(printJob);
-                out.flush();
 
-                System.out.println("Job enviado: " + printJob);
-
-            } catch (Exception e) {
-                System.out.println("Erro ao enviar job " + i + ". Tentando novamente em 2 segundos...");
-                e.printStackTrace();
-                Thread.sleep(2000);
-                i--; // tenta enviar o mesmo job novamente
-            }
+        } catch (Exception e) {
+            System.out.println("Erro ao enviar job. Tentando novamente em 2 segundos...");
+            e.printStackTrace();
+            Thread.sleep(2000);
         }
     }
 }
+
