@@ -19,7 +19,8 @@ public class Client {
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) {
             int idJob = random.nextInt(5) + 1;
             String fileName = "Documento_" + idJob + ".pdf";
-            int pageCount = random.nextInt(10) + 1;
+            int pageCount = random.nextInt(20) + 1;
+
 
             PrintJob printJob = new PrintJob(idJob, fileName, pageCount);
             out.writeObject(printJob);

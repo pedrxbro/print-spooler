@@ -18,11 +18,11 @@ public class Server {
 
         // Pool de Threads para as impressoras
         ExecutorService pool = Executors.newFixedThreadPool(5);
-        pool.execute(new Printer("HP PRETA HOL IP 142", queue, log));
-        pool.execute(new Printer("BROTHER COLOR COND IP 72", queue, log));
-        pool.execute(new Printer("RICOH COLOR MKT IP 232", queue, log));
-        pool.execute(new Printer("EPSON COLOR MKT IP 72", queue, log));
-        pool.execute(new Printer("HP PRETA FISCAL IP 221", queue, log));
+        pool.execute(new Printer("Impressora 1", queue, log));
+        pool.execute(new Printer("Impressora 2", queue, log));
+        pool.execute(new Printer("Impressora 3", queue, log));
+        pool.execute(new Printer("Impressora 4", queue, log));
+        pool.execute(new Printer("Impressora 5", queue, log));
 
         // Inicia o servidor para receber conexões de clientes
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {

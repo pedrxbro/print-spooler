@@ -1,0 +1,13 @@
+2025-09-16 21:05:24 - Servidor iniciado na porta 12345
+2025-09-16 21:05:29 - Job adicionado: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:05:29 - Impressora 1 - Impressão iniciada: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:05:31 - Job adicionado: [Job 4] Documento_4.pdf (20 páginas)
+2025-09-16 21:05:31 - Impressora 2 - Impressão iniciada: [Job 4] Documento_4.pdf (20 páginas)
+2025-09-16 21:05:33 - Job adicionado: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:05:35 - Job adicionado: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:05:49 - Impressora 1 - Impressão concluída: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:05:49 - Impressora 1 - Impressão iniciada: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:05:51 - Impressora 2 - Impressão concluída: [Job 4] Documento_4.pdf (20 páginas)
+2025-09-16 21:05:51 - Impressora 2 - Impressão iniciada: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:06:09 - Impressora 1 - Impressão concluída: [Job 1] Documento_1.pdf (20 páginas)
+2025-09-16 21:06:11 - Impressora 2 - Impressão concluída: [Job 1] Documento_1.pdf (20 páginas)
